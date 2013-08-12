@@ -8,9 +8,54 @@
   = csrf_meta_tags
 
 %body
-  %p.notice
-    = notice
-  %p.alert
-    = alert
+  .navbar
+    .navbar-inner.navbar-topo
+      .container.container-topo.container-logo
+        .titulo
+          = image_tag "logo-fortaleza.png"
+          .texto_projeto
+            %h1.nome_projeto Nome do seu sistema desenvolvido
+            %span.pmf Prefeitura de Fortaleza
 
-  = yield
+        - if user_signed_in?
+          %div.administrador
+            %span.adm-use
+              %b
+                Logado como:
+              = image_tag "user_edit.png", title: "Editar usuário"
+              = link_to current_user.email, '#'
+            %span.adm-logout
+              = image_tag "logout.png", title: "Sair do sistema"
+              = link_to "Sair", destroy_user_session_path, method: :delete
+
+    .navbar.menu-topo
+      .container-menu         
+        %ul.nav.menu-lista
+          %li
+            = link_to "Página inicial"    
+    .navbar.breadcrumb-div
+      .container-menu
+        %ul.breadcrumb
+          %li
+            /= render_breadcrumbs              
+
+
+  .container
+
+    %p#notice= notice
+    
+    /%form.form-signin
+    /  %h2.form-signin-heading Please sign in
+    /  %input{type: "text", class: "input-block-level", placeholder: "Digite seu email"}
+    /  %input{type: "password", class: "input-block-level", placeholder: "Digite sua senha"}
+    /  %label.checkbox
+    /    %input{type: "checkbox", value: "Lembrar"}
+    /  %button.btn.btn-large.btn-primary Logar
+        
+    = yield
+    
+    - if user_signed_in?
+      %footer.rodape
+        %p
+          %span.copyright
+            © SEPOG 2013 | COTEC
