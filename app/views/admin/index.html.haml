@@ -1,0 +1,30 @@
+%h4 Listar usuários cadastrados
+
+%table.table.table-hover.table-list
+  %thead
+    %tr
+      %th Email
+      %th Opções
+  - @users.each do |user|
+    %tr
+      %td= user.email
+      %td
+        /= link_to admin_index_path, {title: "Visualizar", class: 'btn-botao', 'data-toggle' => 'modal', 'data-target' => '#modal-show', :remote => true} do
+        /  %i.icon-search.image_tag
+        = link_to edit_admin_path(user), :title => 'Editar', :class => "btn-botao" do  
+          %i.icon-edit.image_tag 
+        = link_to admin_path(user), :method => :delete, :title => 'Excluir', :data => { :confirm => 'Você tem certeza?' }, :class => "btn-botao" do
+          %i.icon-remove.image_tag
+
+= link_to adicionar_usuario_admin_index_path, class:"btn btn-warning" do
+  %i.icon-file
+  Cadastrar novo usuário
+
+#modal-show.modal.hide.fade
+  .modal-header
+    %button.close{'aria-hidden' => 'true', 'data-dismiss' => 'modal', :type => 'button'} &times;
+    %h3 Detalhes
+  .modal-body.center
+    
+  .modal-footer
+    %a.btn{:href => '#', 'data-dismiss' => 'modal'} Fechar

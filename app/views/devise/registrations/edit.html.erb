@@ -2,11 +2,13 @@
   <%= f.error_notification %>
   <h2>Edit <%= resource_name.to_s.humanize %></h2>
   <div class="form-inputs">
-    <%= f.input :email, :required => true, :autofocus => true %>
+    <%= f.input :email, :required => true, :autofocus => true, input_html: {class: 'input-block-level'} %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
+
+    <%= f.input :role, as: :select, collection: ['admin', 'aprovador', 'solicitante'], prompt: 'Escolha o tipo de usuário', label: "Tipo de usuário", :required => (@adicionar ? true : false), :disabled => (current_user.id == @user.id ? true : false), input_html: {class: 'input-block-level'} %>
 
     <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false, input_html: {class: 'input-block-level'} %>
     <%= f.input :password_confirmation, :required => false, input_html: {class: 'input-block-level'} %>
