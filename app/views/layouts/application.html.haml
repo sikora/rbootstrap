@@ -22,10 +22,12 @@
             %span.adm-use
               %b
                 Logado como:
-              = image_tag "user_edit.png", title: "Editar usuário"
+              /= image_tag "user_edit.png", title: "Editar usuário"
+              %i.icon-user.image_tag
               = link_to current_user.email, edit_user_registration_path
             %span.adm-logout
-              = image_tag "logout.png", title: "Sair do sistema"
+              %i.icon-signout.image_tag
+              /= image_tag "logout.png", title: "Sair do sistema"
               = link_to "Sair", destroy_user_session_path, method: :delete
 
     .navbar.menu-topo
