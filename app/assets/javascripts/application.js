@@ -14,3 +14,19 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+var javascriptsApp =  function() {
+	 if (($('.simple_form').length > 0) && ($('.form_modal').length == 0)){
+ 		$('div.container-meio').removeClass('container-fluid');
+ 		$('div.container-meio').addClass('container');
+ 	 };
+};
+
+
+var do_on_load = function(){
+   javascriptsApp();
+}
+
+
+$(document).ready(do_on_load)
+$(window).bind('page:change', do_on_load)

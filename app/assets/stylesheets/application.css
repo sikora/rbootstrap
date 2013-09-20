@@ -25,30 +25,39 @@
 
 h1 {font-size: 50px;}
 .container {width: 940px;}
+.container-meio {margin-top: 20px;}
 .container-topo-titulo {background-color: #00ABA5; height: 30px;}
 .container-topo-titulo b {text-align: center; color: #fff; font-weight: normal;}
-.navbar-inner .navbar-topo {background-color: #f1f1f0 !important; height: 100px;}
+.navbar-topo {background-color: #f1f1f0 !important; height: 60px;}
 .container-logo {width: 940px !important; margin: 0 auto; height: 60px;}
+
+.row-titulo {width: 395px !important; height: 70px; margin: 0 auto; margin-top: 10px;}
+.titulo-deslogado {margin-top: 10px; margin-bottom: 10px; float: left; min-width: 380px;}
+
 .titulo {margin-top:5px; float: left; min-width: 385px;}
 .titulo img {float: left; margin-top: 3px;}
 .texto_projeto {float: right; margin-left: 5px;}
 .nome_projeto {margin: 0 auto; font-size: 19px; line-height: 26px;}
 .pmf {font-size: 14px;}
-.administrador {float: right; margin-top: 10px; font-size: 13px; margin-right:0px; /*margin-right: -30px;*/}
-.adm-logout {margin-left: 10px;}
-.navbar .menu-topo {background-color: #00ABA5 !important; height: 40px; margin-bottom: 0px;}
+
+.administrador {float: right; margin-top: 10px; font-size: 12px; margin-right:0px; /*margin-right: -30px;*/}
+.adm-orgao, .adm-logout {margin-left: 10px;}
+
+div.menu-topo {background-color: #eee !important; height: 40px; margin-bottom: 0px;border-bottom: 1px solid #00ABA5;}
+ul.nav-pills.menu-nav {margin-top: 0px;}
 .menu-lista li a {background: url('seta_topo.png') 0px 16px no-repeat; }
 ul.menu-lista a {border:0 !important; color:#fff !important;}
-.container-menu {width: 940px; margin: 0 auto;}
+.container-menu {width: 940px; margin: 0 auto; height: 40px;}
+
 .breadcrumb-div {width: 100%; background-color: #f5f5f5; border-bottom: 1px solid #ddd; height: 30px;}
 ul.breadcrumb li a {font-size: 14px; padding: 0 0 0 10px;}
 .hero-unit {margin-bottom: 15px !important; padding: 40px 20px 40px 20px !important; font-size: 14px !important;}
 .container-login {background-color: #00ABA5 !important; float: left; width: 940px !important;}
 .container-sistema {background-color: #ECF0F1 !important;}
 div.container-sistema h1 {font-size: 50px;}
-.rodape {background-color: #00aba5; padding:20px 0 20px 0; /*padding: 20px 20px 20px 20px;*/ margin-top: 20px; height: 20px; width: 100%; clear: both; float: left; /*margin-top: -15px; margin-bottom: 5px;*/}
-.rodape-interno {width: 940px; margin: 0 auto;}
-.rodape p {font-size: 11px; color: #fff; padding: 0px 5px 0px 5px;}
+.rodape {/*position: fixed;margin-bottom: 5px;*/bottom: 0;background-color: #eee;box-shadow: 2px 2px 5px #888888; padding:0px 0 10px 0; /*padding: 20px 20px 20px 20px;*/ margin-top: 20px; height: 30px; width: 100%;  border-top: 1px solid #00ABA5; clear: both; float: left; /*margin-top: -15px; margin-bottom: 5px;*/}
+/*.rodape-interno {width: 940px; margin: 0 auto;}*/
+.rodape p {font-size: 11px; color: #333; padding: 0px 5px 0px 5px;padding-right: 10px}
 .copyright {float: right;}
 /* Devise */
 /*

@@ -2,10 +2,10 @@
   = f.error_notification
 
   .inputs
-    = f.input :email, :required => true, :autofocus => true
-    = f.input :role, as: :select, collection: ['admin', 'aprovador', 'solicitante'], prompt: 'Escolha o tipo de usuário', label: "Tipo de usuário", :required => (@adicionar ? true : false), :disabled => (current_user.id == @user.id ? true : false)
-    = f.input :password, :required => (@adicionar ? true : false), :label => "Senha"
-    = f.input :password_confirmation, :required => (@adicionar ? true : false), :label => "Confirme sua senha"
+    = f.input :email, :required => true, :autofocus => true, :label => "E-mail", input_html: {class: "span9"}
+    = f.input :role, as: :select, collection: ['admin', 'aprovador', 'solicitante'], prompt: 'Escolha o tipo de usuário', label: "Tipo de usuário", :required => (@adicionar ? true : false), :disabled => (current_user.id == @user.id ? true : false), input_html: {class: "span9"}
+    = f.input :password, :required => (@adicionar ? true : false), :label => "Senha", input_html: {class: "span9"}
+    = f.input :password_confirmation, :required => (@adicionar ? true : false), :label => "Confirme sua senha", input_html: {class: "span9"}
 
   .form-actions
     /= f.button :submit, class:"btn btn btn-warning"

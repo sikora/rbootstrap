@@ -1,67 +1,67 @@
 <!DOCTYPE html>
 %html
-%head
-  %title 
-    Rails Bootstrap
-  = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
-  = javascript_include_tag "application", "data-turbolinks-track" => true
-  = csrf_meta_tags
+  %head
+    %title 
+      Rails Bootstrap
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    %link{:rel => "shortcut icon", :href => "/favicon.ico" }
+    = csrf_meta_tags
 
-%body
-  .navbar
-    .navbar-inner.navbar-topo
-      .container.container-topo.container-logo
-        .titulo
-          = image_tag "logo-fortaleza.png"
-          .texto_projeto
-            %h1.nome_projeto Nome do seu sistema desenvolvido
-            %span.pmf Prefeitura de Fortaleza
+  %body
+    .navbar
+      - if user_signed_in?
+        .navbar-inner.navbar-topo
+          .container.container-topo
+            .titulo
+              = image_tag "logo-fortaleza.png"
+              .texto_projeto
+                %h1.nome_projeto Nome do seu sistema desenvolvido
+                %span.pmf Prefeitura de Fortaleza
+            - if user_signed_in?
+              %div.administrador
+                %span.adm-use
+                  %i.icon-user.image_tag
+                  = link_to current_user.email, edit_user_registration_path
+                %span.adm-logout
+                  %i.icon-signout.image_tag
+                  = link_to "Sair", destroy_user_session_path, method: :delete
+      - else
+        .row-fluid.row-titulo
+          .titulo-deslogado
+            = image_tag "logo-fortaleza.png"
+            .texto_projeto
+              %h4.nome_projeto Sistema de Autorização de Cargos
+              %span.pmf Prefeitura de Fortaleza
 
-        - if user_signed_in?
-          %div.administrador
-            %span.adm-use
-              %b
-                Logado como:
-              /= image_tag "user_edit.png", title: "Editar usuário"
-              %i.icon-user.image_tag
-              = link_to current_user.email, edit_user_registration_path
-            %span.adm-logout
-              %i.icon-signout.image_tag
-              /= image_tag "logout.png", title: "Sair do sistema"
-              = link_to "Sair", destroy_user_session_path, method: :delete
+      - if user_signed_in?
+        .navbar.menu-topo
+          .container      
+            %ul.nav.menu-nav
+              - if user_signed_in?
+                %li
+                  = link_to root_path do
+                    %i.icon-home
+                    Página inicial
+                %li
+                  = link_to admin_index_path do
+                    %i.icon-user
+                    Usuários
 
-    .navbar.menu-topo
-      .container-menu         
-        %ul.nav.menu-lista
-          - if user_signed_in?
-            %li
-              = link_to "Página inicial", root_path
-            %li
-              = link_to "Usuários", admin_index_path
-    /.navbar.breadcrumb-div
-    /  .container-menu
-    /    %ul.breadcrumb
-    /      %li
-    /        = render_breadcrumbs              
+    .container-fluid.container-meio
+      %div.row-fluid
 
-
-  .container
-
-    %p#notice= notice
-    
-    /%form.form-signin
-    /  %h2.form-signin-heading Please sign in
-    /  %input{type: "text", class: "input-block-level", placeholder: "Digite seu email"}
-    /  %input{type: "password", class: "input-block-level", placeholder: "Digite sua senha"}
-    /  %label.checkbox
-    /    %input{type: "checkbox", value: "Lembrar"}
-    /  %button.btn.btn-large.btn-primary Logar
+        %p#notice= notice
         
-    = yield
+        = yield
     
-  - if user_signed_in?
-    %footer.rodape
-      .rodape-interno
-        %p
-          %span.copyright
-            © SEPOG 2013 | COTEC
+    - if user_signed_in?
+      %footer.rodape
+        .rodape-interno
+          %p
+            %span.copyright
+              © SEPOG 2013 | COTEC
+
+    = yield :css
+
+    = yield :js
