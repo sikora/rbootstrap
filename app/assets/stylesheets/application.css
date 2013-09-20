@@ -32,9 +32,9 @@ h1 {font-size: 50px;}
 .container-logo {width: 940px !important; margin: 0 auto; height: 60px;}
 
 .row-titulo {width: 395px !important; height: 70px; margin: 0 auto; margin-top: 10px;}
-.titulo-deslogado {margin-top: 10px; margin-bottom: 10px; float: left; min-width: 380px;}
+.titulo-deslogado {margin-top: 10px; margin-bottom: 10px; float: left; min-width: 390px;}
 
-.titulo {margin-top:5px; float: left; min-width: 385px;}
+.titulo {margin-top:5px; float: left; min-width: 390px;}
 .titulo img {float: left; margin-top: 3px;}
 .texto_projeto {float: right; margin-left: 5px;}
 .nome_projeto {margin: 0 auto; font-size: 19px; line-height: 26px;}
